@@ -1,0 +1,58 @@
+{
+	"name": "slice-compressor",
+	"description": "切图压缩插件，适用于蓝湖和figma",
+	"author": "Skipjack",
+	"version": "1.0.0",
+	"homepage_url": "http://skipjack.me",
+	"permissions": [
+		"https://*.figma.com/*",
+		"http://*.figma.com/*",
+		"https://*.lanhuapp.com/*",
+		"http://*.lanhuapp.com/*",
+		"storage",
+		"downloads",
+		"tabs"
+	],
+	"web_accessible_resources": [
+		"js/window_hook.js"
+	],
+	"manifest_version": 2,
+	"icons": {
+		"32": "icons/32.png",
+		"64": "icons/64.png",
+		"128": "icons/128.png",
+		"256": "icons/256.png"
+	},
+	"externally_connectable": {
+		"matches": [
+			"https://*.figma.com/*",
+			"http://*.figma.com/*",
+			"https://*.lanhuapp.com/*",
+			"http://*.lanhuapp.com/*"
+		]
+	},
+	"background": {
+		"persistent": true,
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"content_scripts": [
+		{
+			"run_at": "document_idle",
+			"matches": [
+				"https://*.figma.com/*",
+				"http://*.figma.com/*",
+				"https://*.lanhuapp.com/*",
+				"http://*.lanhuapp.com/*"
+			],
+			"js": [
+				"js/index.js",
+				"js/contentScript.js"
+			]
+		}
+	],
+	"browser_action": {
+		"default_popup": "popup.html"
+	}
+}

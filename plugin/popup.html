@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+	body {
+		margin: 0;
+		border-radius: 8px;
+		user-select: none;
+	}
+
+	.Popup {
+		width: 300px;
+		padding: 12px;
+		font-size: 14px;
+	}
+
+	.Popup__SettingsItem {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.Popup__SettingsItem+.Popup__SettingsItem {
+		margin-top: 12px;
+	}
+
+	.Popup__SettingsToggle {
+		width: 45px;
+		height: 23px;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-image: url('./icons/icon_toggle_off.png');
+		cursor: pointer;
+	}
+
+	.Popup__SettingsToggle.on {
+		background-image: url('./icons/icon_toggle_on.png');
+	}
+
+	.Popup__SettingsToggle.disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.Popup__SettingsItemTips {
+		margin: 4px;
+		color: #999;
+		font-size: 10px;
+	}
+
+	.Popup__SettingsRange {
+		cursor: pointer;
+	}
+
+	.Popup__SettingsRange[disabled] {
+		cursor: not-allowed;
+	}
+
+</style>
+
+<body>
+	<div class="Popup">
+		<div class="Popup__Settings">
+			<div class="Popup__SettingsItem">
+				<label for="compressToggle">开启切图压缩?</label>
+				<div id="compressToggle" class="Popup__SettingsToggle"></div>
+			</div>
+			<div class="Popup__SettingsItem">
+				<label for="compressToggle">使用TinyPng API?</label>
+				<div id="compressTinypng" class="Popup__SettingsToggle"></div>
+			</div>
+			<div class="Popup__SettingsItemTips">压缩基本无损，但接口延迟较大，酌情使用。</div>
+			<div class="Popup__SettingsItem">
+				<label for="compressRate">选择压缩率 (<span id="rateValue"></span>)</label>
+				<input class="Popup__SettingsRange" type="range" id="compressRate" list="rateList" name="volume" min="0" max="1"
+					step="0.1" class="Popup__SettingsSlider" />
+				<datalist id="rateList">
+					<option value="0" label="0"></option>
+					<option value="0.1" label="0.1"></option>
+					<option value="0.2" label="0.2"></option>
+					<option value="0.3" label="0.3"></option>
+					<option value="0.4" label="0.4"></option>
+					<option value="0.5" label="0.5"></option>
+					<option value="0.6" label="0.6"></option>
+					<option value="0.7" label="0.7"></option>
+					<option value="0.8" label="0.8"></option>
+					<option value="0.9" label="0.9"></option>
+					<option value="1" label="1"></option>
+				</datalist>
+			</div>
+			<div class="Popup__SettingsItemTips">压缩率越大理论上导出文件越小。注意：过大可能影响切图质量。</div>
+		</div>
+	</div>
+	<script src="js/popup.js"></script>
+</body>
+
+</html>

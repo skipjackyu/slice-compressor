@@ -1,0 +1,26 @@
+{
+  "name": "slice-compressor",
+  "version": "1.0.0",
+  "description": "slice compressor for lanhuapp.com & figma.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js --port 3120",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.4.16",
+    "formidable": "^1.2.2",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "koa": "^2.13.0",
+    "koa-cors2": "^0.0.1",
+    "tinify": "^1.6.0-beta.2",
+    "yargs": "^15.4.1"
+  },
+  "engines": {
+    "node": "^8.1.4"
+  }
+}
