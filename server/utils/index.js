@@ -5,7 +5,7 @@ const imageminPngquant = require('imagemin-pngquant')
 const AdmZip = require('adm-zip')
 const tinify = require('tinify') // 调用tinify 的api延迟较高
 
-tinify.key = 'Tc8DsXnccglRmG2dPKVjc2mJvmDsRJLy' // TODO:上线前换成公司账号api
+tinify.key = '' // 替换成自己的key
 
 const getOpts = (rate) => ({
   // destination: 'temp/compressed', // 此参数为空返回的是buffer 列表，不在磁盘创建文件
